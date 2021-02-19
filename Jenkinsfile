@@ -15,7 +15,7 @@ spec:
   - name: docker
     env:
     - name: DOCKER_HOST
-      value: 127.0.0.1
+      value: hub.docker.com
     image: docker:18.09
     command:
     - cat
