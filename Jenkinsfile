@@ -4,7 +4,11 @@ pipeline {
 
         stage('Build') {
             agent { dockerfile true }
-
+            
+            environment {
+                DOCKERHUB_CREDS = credentials('dockerhub')
+            }
+            
             steps {
                 echo 'Hi, ArgoCD. Starting to build the App.'
             }   
