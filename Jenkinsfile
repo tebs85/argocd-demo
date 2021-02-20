@@ -21,7 +21,7 @@ pipeline {
             
             steps {
                 input('Do you want to proceed?')
-                sh 'node --version
+                sh 'node --version'
             }
         }
 
