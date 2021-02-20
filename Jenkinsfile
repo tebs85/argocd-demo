@@ -3,32 +3,32 @@ pipeline {
     stages {
 
         stage('Build') {
+            agent { dockerfile true }
+
             steps {
-                echo 'Hi, GeekFlare. Starting to build the App.'
+                echo 'Hi, ArgoCD. Starting to build the App.'
             }   
         }
 
         stage('Test') {
             steps {
                 input('Do you want to proceed?')
+                sh 'node --version'
             }
         }
 
         stage('Deploy') {
             parallel { 
 
-                stage('Deploy start ') {
+                stage('Deploy start') {
                     steps {
                         echo "Start the deploy .."
                     } 
                 }
-                
+
                 stage('Deploying now') {
                     agent {
-                        docker {
-                            reuseNode true
-                            image ‘nginx’
-                        }
+                        docker { image 'node:14-alpine' }
                     }
                     
                     steps {
