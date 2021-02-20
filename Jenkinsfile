@@ -15,8 +15,13 @@ pipeline {
         }
 
         stage('Test') {
+             agent {
+                docker { image 'node:14-alpine' }
+            }
+            
             steps {
                 input('Do you want to proceed?')
+                sh 'node --version
             }
         }
 
