@@ -1,6 +1,5 @@
 pipeline {
   agent {
-    dockerfile true,
     any {
       label 'jenkins-slave'
       defaultContainer 'jnlp'
