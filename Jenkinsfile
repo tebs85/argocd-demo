@@ -3,7 +3,12 @@ pipeline {
     stages {
 
         stage('Build') {
-            agent { dockerfile true }
+            agent { 
+                dockerfile {
+                    filename 'Dockerfile'
+                    label 'tebogomoloi/argocd-demo' 
+                }
+            }
             
             environment {
                 DOCKERHUB_CREDS = credentials('dockerhub')
